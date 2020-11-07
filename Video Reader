@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Nov  6 17:46:33 2020
+
+@author: Shreyash
+"""
+import numpy as np
+import cv2 as cv
+
+cap = cv.VideoCapture('Video1.mp4')#give full path with correct convention or file name if present in the same folder
+
+while(cap.isOpened()):
+    ret, frame = cap.read() # returns the frame and a boolean value of whether the image was retrived successfully
+    cv.imshow('frame',frame)
+    if cv.waitKey(1) & 0xFF == ord('q'): # exits when button q is pressed
+        break
+
+cap.release() # release the variable
+cv.destroyAllWindows() # closes all current active windows
