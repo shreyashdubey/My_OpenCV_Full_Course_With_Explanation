@@ -1,0 +1,5 @@
+import cv2 as cv
+img = cv.imread('pic1.png')
+cv.imshow('Pic1',img)
+cv.waitKey(5000)#waits for the given amount of time in miliseconds(0=infinity)
+cv.destroyAllWindows()
