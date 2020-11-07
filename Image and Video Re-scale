@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Nov  8 04:53:48 2020
+
+@author: Shreyash
+"""
+# To Rescale is to change the height and width of the image
+
+# function to rescale
+def rescaler(frame,scale=0.75):
+    img_height = int(frame.shape[0] * scale)
+    img_width = int(frame.shape[1] * scale)
+    dimension = (img_width, img_height) # tuple
+    new_frame = cv.resize(frame, dimension, interpolation = cv.INTER_AREA)# read function definition for more
+    return new_frame
+    
+
+# Image Rescale Tutorial
+import cv2 as cv
+img = cv.imread('pic1.png')
+cv.imshow('pic1',img)
+resized_img1=rescaler(img,0.75)
+resized_img2=rescaler(img,0.50)
+cv.imshow('resized image 1 at 75%',resized_img1)
+cv.imshow('resized image 2 at 50%',resized_img2)
+cv.waitKey(10000)
+cv.destroyAllWindows() 
+
+
+# Video Rescale Tutorial
+import cv2 as cv
+
+cap = cv.VideoCapture('Video1.mp4')
+
+while(cap.isOpened()):
+    ret, frame = cap.read() 
+    resized_frame=rescaler(frame)
+    cv.imshow('frame',frame)
+    cv.imshow('Resized at 75%',resized_frame)
+    if cv.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release() 
+cv.destroyAllWindows() 
