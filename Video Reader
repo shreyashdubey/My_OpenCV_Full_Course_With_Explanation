@@ -7,7 +7,8 @@ Created on Fri Nov  6 17:46:33 2020
 import numpy as np
 import cv2 as cv
 
-cap = cv.VideoCapture('Video1.mp4')#give full path with correct convention or file name if present in the same folder
+cap = cv.VideoCapture('Video1.mp4')#give full path with correct convention or file name if present in the same folder OR give Integer value if want current feed of the webcam.
+# cap = cv.VideoCapture(x) x=0,1,2 depnding on which webcam you want to access
 
 while(cap.isOpened()):
     ret, frame = cap.read() # returns the frame and a boolean value of whether the image was retrived successfully
