@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Nov  8 05:43:02 2020
+
+@author: Shreyash
+"""
+
+import cv2 as cv
+import numpy as np
+
+img = np.zeros((500,500,3),dtype='uint8') # 3d array of zeros with dimensions 500,500,3. 3 is for color channels 
+# data type is uint8 unsigned integer 8 bits because 0-255 color strength and 2^8=256 so to give the color value in BGR format
+cv.imshow('Blank',img)
+
+img[:]=0,255,0
+cv.imshow('Green',img)
+
+img[:]=255,0,0
+cv.imshow('Blue',img)
+
+img[:]=255,255,255
+cv.imshow("White",img)
+
+cv.waitKey(10000)
+cv.destroyAllWindows()
